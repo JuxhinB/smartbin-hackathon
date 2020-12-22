@@ -14,6 +14,7 @@ export interface BinTypes {
 }
 
 function NewBinModal({ handleNewBin }: any): JSX.Element {
+  const [form] = Form.useForm();
 
   const [isModalVisible, setIsModalVisible,] = useState(false);
   const [response, setResponse] = useState("");
@@ -62,16 +63,23 @@ function NewBinModal({ handleNewBin }: any): JSX.Element {
       <Modal
         title="Add a new bin"
         visible={isModalVisible}
+        onCancel={() => {
+          setIsModalVisible(false)
+        }}
         footer={null}>
         <div className="flex flex-grow flex-col">
           <p className="text-gray-600">Complete the following fields to add a new bin.</p>
         </div>
         <Form
+          form={form}
           name="basic"
           initialValues={{
             remember: true,
           }}
-          onFinish={handleOk}
+          onFinish={(values) => {
+            form.resetFields();
+            handleOk(values)
+          }}
         >
           <div className="px-3">
             <Form.Item
