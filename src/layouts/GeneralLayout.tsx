@@ -1,13 +1,22 @@
 import React from "react";
+import { PageHeader } from 'antd';
 
 interface GeneralLayoutProps {
   children: JSX.Element;
+  title: string;
+  subTitle: string;
 }
 
-const GeneralLayout = ({ children }: GeneralLayoutProps) => {
+const GeneralLayout = ({ title, subTitle, children }: GeneralLayoutProps) => {
   return (
-    <div className={"outer-container"}>
-      <div className={"inner-container"}>{children}</div>
+    <div className={"outer-container w-full h-full"}>
+      <div className={"inner-container w-full h-full flex flex-col relative"}>
+        <PageHeader
+          title={title}
+          subTitle={subTitle}
+        />
+        {children}
+      </div>
     </div>
   );
 };

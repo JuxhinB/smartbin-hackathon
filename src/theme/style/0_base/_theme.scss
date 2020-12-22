@@ -10,3 +10,8 @@
 .inner-container {
   max-width: $inner-container;
 }
+
+.leaflet-marker-icon{
+  background: transparent !important;
+  border: 0 !important;
+}
