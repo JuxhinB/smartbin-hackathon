@@ -1,0 +1,78 @@
+{
+  "author": "Juxhin Bleta",
+  "name": "jbrcp",
+  "version": "0.1.0",
+  "private": true,
+  "dependencies": {
+    "axios": "^0.19.1",
+    "emotion": "^10.0.27",
+    "formik": "^2.1.1",
+    "node-sass": "^4.12.0",
+    "react": "^16.12.0",
+    "react-dom": "^16.12.0",
+    "react-helmet": "^5.2.1",
+    "react-hot-loader": "^4.12.19",
+    "react-localization": "^1.0.15",
+    "react-router-dom": "^5.1.2",
+    "react-scripts": "^3.3.0",
+    "sass-loader": "^8.0.0",
+    "tailwindcss": "^1.1.4",
+    "yup": "^0.28.0"
+  },
+  "scripts": {
+    "build:style": "postcss src/theme/style/style-raw.scss -o src/theme/style/style.scss",
+    "start-scss-map": "react-app-rewired start node-sass --source-map true --include-path ./src --include-path ./node_modules ./src/scss -o",
+    "start": "npm run build:style && react-app-rewired start",
+    "build": "npm run build:style && react-app-rewired build",
+    "test": "react-app-rewired test",
+    "eject": "react-app-rewired eject",
+    "storybook": "start-storybook",
+    "format-all": "npx prettier --write 'src/**/*'",
+    "clean-npm": "rm -rf node_modules && rm -rf package-lock.json",
+    "jsdoc": "npx jsdoc -c jsdocConfig.json"
+  },
+  "eslintConfig": {
+    "extends": "react-app",
+    "rules": {
+      "@typescript-eslint/consistent-type-assertions": "off",
+      "@typescript-eslint/no-unused-expressions": "off"
+    }
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  },
+  "devDependencies": {
+    "@babel/plugin-transform-react-jsx": "^7.8.3",
+    "@fullhuman/postcss-purgecss": "^2.0.6",
+    "@storybook/react": "^5.2.8",
+    "@types/enzyme": "^3.10.4",
+    "@types/enzyme-adapter-react-16": "^1.0.5",
+    "@types/jest": "^24.0.25",
+    "@types/node": "^13.1.6",
+    "@types/react": "^16.9.17",
+    "@types/react-dom": "^16.9.4",
+    "@types/react-router-dom": "^5.1.3",
+    "@typescript-eslint/eslint-plugin": "^2.15.0",
+    "@typescript-eslint/parser": "^2.15.0",
+    "@welldone-software/why-did-you-render": "^4.0.3",
+    "autoprefixer": "^9.7.4",
+    "babel-jest": "^24.9.0",
+    "better-docs": "^1.4.7",
+    "customize-cra": "^0.9.1",
+    "jsdoc": "^3.6.3",
+    "postcss-cli": "^7.1.0",
+    "prettier": "1.19.1",
+    "react-app-rewire-hot-loader": "^2.0.1",
+    "react-app-rewired": "^2.1.5",
+    "typescript": "^3.7.5"
+  }
+}
