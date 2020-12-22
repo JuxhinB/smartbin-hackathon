@@ -1,8 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import { Form, Input, Modal, Button } from 'antd';
 import { PlusOutlined } from "@ant-design/icons";
-import { io } from 'socket.io-client';
-const SOCKET_ENDPOINT = "http://4bdb0d05d756.ngrok.io:3000";
 
 export interface BinTypes {
   uniqueId?: string;
@@ -18,20 +16,6 @@ function NewBinModal({ handleNewBin }: any): JSX.Element {
   const [form] = Form.useForm();
 
   const [isModalVisible, setIsModalVisible,] = useState(false);
-  // const [response, setResponse] = useState("");
-
-  useEffect(() => {
-    let socket = io(SOCKET_ENDPOINT);
-    socket.emit("join", (error: any) => {
-      console.log("join");
-      if (error) {
-        alert(error);
-      }
-    });
-    socket.on("data", (message: any) => {
-      console.log(message);
-    });
-  }, []);
 
   function showModal() {
     setIsModalVisible(true);
