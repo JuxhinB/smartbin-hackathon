@@ -1,18 +1,25 @@
-import React, { createContext } from "react";
+import React, { createContext, Dispatch, useState } from "react";
+import { BinTypes } from "../container/binMap/NewBinModal";
 
 interface UserProviderProps {
   children: JSX.Element;
 }
-interface IUserContextTypes {}
+interface IUserContextTypes {
+  binList: BinTypes[], setBinList: Dispatch<BinTypes[]>
+}
 
-const USER_CONTEXT_INITIAL_VALUES = {};
+const USER_CONTEXT_INITIAL_VALUES = {
+  binList: [], setBinList: () => { }
+};
 
 export const UserContext = createContext<IUserContextTypes>({
   ...USER_CONTEXT_INITIAL_VALUES,
 });
 
 function UserProvider({ children }: UserProviderProps) {
-  const providerValue = {};
+  const [binList, setBinList] = useState<BinTypes[]>([]);
+
+  const providerValue = { binList, setBinList };
 
   return (
     <UserContext.Provider value={providerValue}>

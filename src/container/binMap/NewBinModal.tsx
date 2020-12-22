@@ -5,6 +5,7 @@ import { io } from 'socket.io-client';
 const SOCKET_ENDPOINT = "http://4bdb0d05d756.ngrok.io:3000";
 
 export interface BinTypes {
+  uniqueId?: string;
   binId: string;
   height: number;
   lat: number;

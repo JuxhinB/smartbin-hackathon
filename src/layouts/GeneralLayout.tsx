@@ -17,7 +17,7 @@ const GeneralLayout = ({ title, subTitle, children }: GeneralLayoutProps) => {
         <PageHeader
           title={title}
           subTitle={subTitle}
-
+          className="bg-white"
         >
           <div className="flex">
             <Button

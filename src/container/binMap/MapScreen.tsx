@@ -1,10 +1,11 @@
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { GeneralLayout } from "../../layouts";
 import { MapContainer, TileLayer, Marker, useMapEvents, useMap } from 'react-leaflet';
 import 'leaflet/dist/leaflet.css';
 import { divIcon } from 'leaflet';
 import NewBinModal, { BinTypes } from "./NewBinModal"
 import { LatLngLiteral } from "leaflet";
+import { UserContext } from "../../provider/UserProvider";
 const initialPosition: LatLngLiteral = { lat: 41.3200327, lng: 19.8200031 };
 
 function MyComponent({ setClickedMarkerLocation }: any) {
@@ -28,8 +29,9 @@ function MyComponent({ setClickedMarkerLocation }: any) {
 
 function MapScreen() {
 
+  const { binList, setBinList } = useContext(UserContext)
+
   const [clickedMarkerLocation, setClickedMarkerLocation] = useState<any>(null);
-  const [binList, setBinList] = useState<BinTypes[]>([]);
 
   useEffect(() => {
     getList();
