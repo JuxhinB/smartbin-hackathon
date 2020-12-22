@@ -18,7 +18,7 @@ function NewBinModal({ handleNewBin }: any): JSX.Element {
   const [form] = Form.useForm();
 
   const [isModalVisible, setIsModalVisible,] = useState(false);
-  const [response, setResponse] = useState("");
+  // const [response, setResponse] = useState("");
 
   useEffect(() => {
     let socket = io(SOCKET_ENDPOINT);

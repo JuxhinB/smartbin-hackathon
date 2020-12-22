@@ -1,6 +1,5 @@
 import React from "react";
 import { PageHeader, Button } from 'antd';
-import { PageHeaderProps } from "antd/lib/page-header";
 import { useHistory } from "react-router-dom"
 
 interface GeneralLayoutProps {

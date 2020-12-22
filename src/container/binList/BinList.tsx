@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useState } from 'react'
+import React, { useContext, useEffect } from 'react'
 import { GeneralLayout } from "../../layouts";
 import { v4 as uuidv4 } from 'uuid';
 import { BinTypes } from '../binMap/NewBinModal';
@@ -10,6 +10,7 @@ function BinList(): JSX.Element {
   useEffect(() => {
     document.body.classList.add("bg-gray-100");
     getList();
+    // eslint-disable-next-line
   }, []);
 
   useEffect(() => {
@@ -18,14 +19,6 @@ function BinList(): JSX.Element {
 
   function getList() {
     setBinList(JSON.parse(localStorage.getItem("bin-list") as string) as BinTypes[]);
-  }
-
-  function handleNewBin(bin: BinTypes) {
-    const { binId, height, lat, length, lng, width, } = bin;
-
-    setBinList([...binList, bin]);
-
-    localStorage.setItem("bin-list", JSON.stringify([...binList, bin]));
   }
 
   return (

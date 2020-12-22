@@ -1,6 +1,6 @@
 import React, { useContext, useEffect, useState } from "react";
 import { GeneralLayout } from "../../layouts";
-import { MapContainer, TileLayer, Marker, useMapEvents, useMap } from 'react-leaflet';
+import { MapContainer, TileLayer, Marker, useMapEvents } from 'react-leaflet';
 import 'leaflet/dist/leaflet.css';
 import { divIcon } from 'leaflet';
 import NewBinModal, { BinTypes } from "./NewBinModal"
@@ -35,6 +35,7 @@ function MapScreen() {
 
   useEffect(() => {
     getList();
+    // eslint-disable-next-line
   }, []);
 
   useEffect(() => {
@@ -46,7 +47,7 @@ function MapScreen() {
   }
 
   function handleNewBin(bin: BinTypes) {
-    const { binId, height, lat, length, lng, width, } = bin;
+    // const { binId, height, lat, length, lng, width, } = bin;
 
     setBinList([...binList, bin]);
 
