@@ -13,7 +13,7 @@ export interface BinTypes {
   width: number;
 }
 
-function NewBinModal(): JSX.Element {
+function NewBinModal({ handleNewBin }: any): JSX.Element {
 
   const [isModalVisible, setIsModalVisible,] = useState(false);
   const [response, setResponse] = useState("");
@@ -31,23 +31,14 @@ function NewBinModal(): JSX.Element {
     });
   }, []);
 
-  // useEffect(() => {
-  //   const socket_connect = io(SOCKET_ENDPOINT);
-
-  //   socket_connect.on("distance_channel", (data: any) => {
-  //     console.log(data);
-  //     setResponse(data);
-  //   });
-  // }, []);
-
   function showModal() {
     setIsModalVisible(true);
   };
 
   function handleOk(values: BinTypes) {
     console.log(values);
-
-    const { binId, height, lat, length, lng, width, } = values;
+    handleNewBin(values)
+    setIsModalVisible(false);
   };
 
   return (
@@ -101,8 +92,8 @@ function NewBinModal(): JSX.Element {
             <div className="w-1/2 px-3">
               <Form.Item
                 className="w-full"
-                label="Longitude"
-                name="lng"
+                label="Latitude"
+                name="lat"
                 rules={[
                   {
                     required: true,
@@ -116,8 +107,8 @@ function NewBinModal(): JSX.Element {
             <div className="w-1/2 px-3">
               <Form.Item
                 className="w-full"
-                label="Latitude"
-                name="lat"
+                label="Longitude"
+                name="lng"
                 rules={[
                   {
                     required: true,
